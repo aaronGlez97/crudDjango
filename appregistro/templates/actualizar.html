@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AppRegistro</title>
+    
+    
+    {% load bootstrap4 %}
+
+    {# CSS Bootstrap #}
+    {% bootstrap_css %}
+   
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-info">
+    <a class="navbar-brand" href={% url 'inicio'  %}>AppRegistro</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href={% url 'inicio' %}>Inicio <span class="sr-only">(current)</span></a>
+     
+        <a class="nav-item nav-link active" href={% url 'registrar' %}>Registrar usuario</a>
+        <a class="nav-item nav-link active" href={% url 'eliminar' %}>Eliminar usuario</a>
+        <a class="nav-item nav-link active" href={% url 'actualizar' %}>Actualizar usuario</a>
+        
+        
+      </div>
+    </div>
+</nav>
+    <br/>
+
+    <div class="container bg-primary text-white">
+      <h5> Actualizar registro</h5>  
+
+    </div>
+    <script >
+      function actualizado(){
+        return alert("Se ha actualizado el registro")
+      }
+      
+    </script>
+    
+    
+    <form method="POST" action="" class="container" >
+    {% csrf_token %}
+            
+    <!--Iterando todos los campos del formulario para personalizarlo-->  
+    {{form.id}}
+    {% for field in form %}
+     
+      <div class=" ">
+        {{field.errors}}
+        {{field.label_tag}} 
+       
+        {{field}}
+
+
+      </div>        
+  
+      {% endfor %} 
+
+
+    <input type="submit" value="Actualizar" onclick="actualizado()"  >
+    
+  </form>
+    
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+   <footer>
+    <div class="container-fluid bg-info text-white">
+        <h5>AppRegistro</h5>
+     </div>´
+    </footer>
+    {% bootstrap_javascript jquery='full '%} 
+</body>
+</html>

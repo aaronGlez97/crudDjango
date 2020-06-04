@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AppRegistro</title>
+    
+    
+    {% load bootstrap4 %}
+
+    {# CSS Bootstrap #}
+    {% bootstrap_css %}
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-info">
+    <a class="navbar-brand" href={% url 'inicio'  %}>AppRegistro</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href={% url 'inicio' %}>Inicio <span class="sr-only">(current)</span></a>
+     
+        <a class="nav-item nav-link active" href={% url 'registrar' %}>Registrar usuario</a>
+        <a class="nav-item nav-link active" href={% url 'eliminar' %}>Eliminar usuario</a>
+        <a class="nav-item nav-link active" href={% url 'actualizar' %}>Actualizar usuario</a>
+        
+        
+      </div>
+    </div>
+</nav>
+    <br/>
+    <div class="container bg-primary text-white ">
+     <h4>Actualizar registro </h4>
+     <p> Instrucciones :De click en editar en el registro que desee actualizar </p> 
+
+    </div>
+
+    <div class="">
+        <div class="container bg-primary">
+          <br>
+          <h4 class="bg-white ">Registro de usuarios</h4>
+          {% if registro  %}
+          <ul class="container  text-white" style="list-style: none">
+            <li>Id &nbsp; Nombre &nbsp; Correo &nbsp; Telefono &nbsp; Domicilio</li>
+            {% for items in registro %}
+            <li>{{ items.id  }} &nbsp;  {{items.nombre}} &nbsp;  {{items.correo}} &nbsp; {{items.telefono}} &nbsp; {{items.domicilio}}  &nbsp; &nbsp;<button class=" btn btn-secondary"> <a  href="/actualizar/{{items.id}}">Editar </a> </button> </li>
+            
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No existen registros en la base de datos</p>
+        {% endif %}
+        
+    
+        </div>
+      </div>
+
+   
+    
+    
+   
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+   <footer>
+    <div class="container-fluid bg-info text-white">
+        <h5>AppRegistro</h5>
+     </div>´
+    </footer>
+    {% bootstrap_javascript jquery='full '%} 
+</body>
+</html>
