@@ -1,4 +1,4 @@
-# AppRegsitro  con el framework django de python
+# Aplicaciones para realizar registros basicos con el framework django de python
 Ejemplo de un CRUD(Frontend:Bootstrap,Backend:Django)
 
 Appregistro es una app web tipo crud que realiza los registros de usuarios , eliminiaciones y actualizaciones
